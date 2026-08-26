@@ -1,0 +1,57 @@
+/*
+ * Exalynt theme: Midnight + Exalynt Blue.
+ * Raw brand colors live under --color-*; everything else in the app
+ * consumes the semantic tokens below them, so a palette change only
+ * has to happen in one place.
+ *
+ * Light is the default (bare :root). Dark applies automatically via
+ * prefers-color-scheme, unless the user has picked explicitly with the
+ * header toggle, in which case [data-theme] wins in either direction.
+ */
+
+:root {
+  /* Brand palette */
+  --color-midnight: #080f1a;
+  --color-elevated: #101a2a;
+  --color-blue: #3b82f6;
+  --color-slate: #64748b;
+  --color-mist: #e8edf3;
+  --color-cloud: #f7f9fc;
+  --color-white: #ffffff;
+  --color-text-primary-dark: #f8fafc;
+  --color-text-secondary-dark: #94a3b8;
+
+  /* Semantic tokens — page surfaces (respond to the theme toggle) */
+  --bg: var(--color-cloud);
+  --bg-alt: var(--color-mist);
+  --border: rgb(100 116 139 / 22%);
+  --ink: var(--color-midnight);
+  --text: var(--color-slate);
+  --accent: var(--color-blue);
+
+  /* Semantic tokens — fixed dark surfaces (header CTA, contact band, footer);
+     these stay midnight regardless of the toggle, by design. */
+  --charcoal: var(--color-midnight);
+  --charcoal-deep: #04060b;
+  --on-charcoal-text: var(--color-text-secondary-dark);
+  --on-charcoal-border: rgb(255 255 255 / 16%);
+  --on-charcoal-accent: var(--color-blue);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--color-midnight);
+    --bg-alt: var(--color-elevated);
+    --border: rgb(255 255 255 / 12%);
+    --ink: var(--color-text-primary-dark);
+    --text: var(--color-text-secondary-dark);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: var(--color-midnight);
+  --bg-alt: var(--color-elevated);
+  --border: rgb(255 255 255 / 12%);
+  --ink: var(--color-text-primary-dark);
+  --text: var(--color-text-secondary-dark);
+}

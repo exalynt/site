@@ -4,7 +4,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vite-scaffold</title>
+    <meta
+      name="description"
+      content="Exalynt is software engineering built on a simple idea: excellence is a habit, not a finish line. Consulting, writing, and tools built the Exalynt way."
+    />
+    <title>Exalynt — Software Engineering, Excellently</title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("exalynt-theme");
+        if (stored === "light" || stored === "dark") {
+          document.documentElement.setAttribute("data-theme", stored);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
