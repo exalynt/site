@@ -1,8 +1,17 @@
 import { Link, Outlet } from "react-router-dom";
-import { LinkedInIcon, Mark, MoonIcon, SunIcon } from "./icons";
+import { GitHubIcon, LinkedInIcon, Mark, MoonIcon, SunIcon } from "./icons";
 import { useTheme } from "./useTheme";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/john-peterson-dev/";
+const GITHUB_URL = "https://github.com/john-peterson-g17";
+
+const NAV_LINKS = [
+  { to: "/engineering", label: "Engineering" },
+  { to: "/writing", label: "Writing" },
+  { to: "/projects", label: "Projects" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+];
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
@@ -34,7 +43,21 @@ function Layout() {
             <span>EXALYNT</span>
           </Link>
           <nav className="site-nav">
-            <Link to="/about">About</Link>
+            {NAV_LINKS.map(({ to, label }) => (
+              <Link to={to} key={to}>
+                {label}
+              </Link>
+            ))}
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="icon-link"
+              aria-label="John Peterson on GitHub"
+              title="View on GitHub"
+            >
+              <GitHubIcon className="icon-link-icon" />
+            </a>
             <a
               href={LINKEDIN_URL}
               target="_blank"
@@ -46,7 +69,7 @@ function Layout() {
               <LinkedInIcon className="icon-link-icon" />
             </a>
             <ThemeToggle />
-            <Link to="/#contact" className="btn btn-primary btn-sm">
+            <Link to="/contact" className="btn btn-primary btn-sm">
               Get in touch
             </Link>
           </nav>
@@ -56,12 +79,36 @@ function Layout() {
       <Outlet />
 
       <footer className="site-footer surface-dark deep">
+        <div className="container footer-statement">
+          <p>
+            <strong>Exalynt Engineering</strong>
+            <br />
+            Pursue excellence. Learn continuously. Build things that matter.
+          </p>
+        </div>
         <div className="container footer-inner">
           <Link to="/" className="brand brand-footer">
             <Mark className="brand-mark" />
             <span>EXALYNT</span>
           </Link>
+          <nav className="footer-nav">
+            {NAV_LINKS.map(({ to, label }) => (
+              <Link to={to} key={to}>
+                {label}
+              </Link>
+            ))}
+          </nav>
           <div className="footer-meta">
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="icon-link icon-link-footer"
+              aria-label="John Peterson on GitHub"
+              title="View on GitHub"
+            >
+              <GitHubIcon className="icon-link-icon" />
+            </a>
             <a
               href={LINKEDIN_URL}
               target="_blank"
@@ -72,7 +119,7 @@ function Layout() {
             >
               <LinkedInIcon className="icon-link-icon" />
             </a>
-            <p className="copyright">© 2026 Exalynt. Excellence, repeated.</p>
+            <p className="copyright">© 2026 Exalynt Engineering.</p>
           </div>
         </div>
       </footer>
