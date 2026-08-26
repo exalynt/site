@@ -8,8 +8,8 @@ function Writing() {
           <p className="eyebrow">Writing</p>
           <h1>Writing</h1>
           <p>
-            Thoughts on software engineering, architecture, building systems, technical
-            leadership, learning, failure, and the craft of creating useful software.
+            Thoughts on software engineering, architecture, building systems, technical leadership,
+            learning, failure, and the craft of creating useful software.
           </p>
         </div>
 
