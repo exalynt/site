@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { DocumentIcon, GitHubIcon, LinkedInIcon } from "../icons";
-
-const LINKEDIN_URL = "https://www.linkedin.com/in/john-peterson-dev/";
-const GITHUB_URL = "https://github.com/john-peterson-g17";
+import { PERSONAL_GITHUB_URL, PERSONAL_LINKEDIN_URL } from "../constants";
 
 const QUALIFICATIONS = [
   "AWS Certified Solutions Architect – Associate",
@@ -55,11 +53,11 @@ function About() {
               other engineers.
             </p>
             <div className="about-actions">
-              <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
+              <a href={PERSONAL_GITHUB_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
                 <GitHubIcon className="btn-icon" />
                 GitHub
               </a>
-              <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
+              <a href={PERSONAL_LINKEDIN_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
                 <LinkedInIcon className="btn-icon" />
                 LinkedIn
               </a>

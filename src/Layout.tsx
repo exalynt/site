@@ -1,13 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import { GitHubIcon, LinkedInIcon, Mark, MoonIcon, SunIcon } from "./icons";
 import { useTheme } from "./useTheme";
-
-const LINKEDIN_URL = "https://www.linkedin.com/in/john-peterson-dev/";
-const GITHUB_URL = "https://github.com/john-peterson-g17";
+import { EXALYNT_BLOG_URL, EXALYNT_GITHUB_URL, EXALYNT_LINKEDIN_URL } from "./constants";
 
 const NAV_LINKS = [
   { to: "/engineering", label: "Engineering" },
-  { to: "/writing", label: "Writing" },
+  { to: EXALYNT_BLOG_URL, label: "Blog", external: true },
   { to: "/projects", label: "Projects" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
@@ -43,27 +41,33 @@ function Layout() {
             <span>EXALYNT</span>
           </Link>
           <nav className="site-nav">
-            {NAV_LINKS.map(({ to, label }) => (
-              <Link to={to} key={to}>
-                {label}
-              </Link>
-            ))}
+            {NAV_LINKS.map(({ to, label, external }) =>
+              external ? (
+                <a href={to} target="_blank" rel="noreferrer" key={to}>
+                  {label}
+                </a>
+              ) : (
+                <Link to={to} key={to}>
+                  {label}
+                </Link>
+              )
+            )}
             <a
-              href={GITHUB_URL}
+              href={EXALYNT_GITHUB_URL}
               target="_blank"
               rel="noreferrer"
               className="icon-link"
-              aria-label="John Peterson on GitHub"
+              aria-label="Exalynt on GitHub"
               title="View on GitHub"
             >
               <GitHubIcon className="icon-link-icon" />
             </a>
             <a
-              href={LINKEDIN_URL}
+              href={EXALYNT_LINKEDIN_URL}
               target="_blank"
               rel="noreferrer"
               className="icon-link"
-              aria-label="John Peterson on LinkedIn"
+              aria-label="Exalynt on LinkedIn"
               title="Connect on LinkedIn"
             >
               <LinkedInIcon className="icon-link-icon" />
@@ -92,29 +96,35 @@ function Layout() {
             <span>EXALYNT</span>
           </Link>
           <nav className="footer-nav">
-            {NAV_LINKS.map(({ to, label }) => (
-              <Link to={to} key={to}>
-                {label}
-              </Link>
-            ))}
+            {NAV_LINKS.map(({ to, label, external }) =>
+              external ? (
+                <a href={to} target="_blank" rel="noreferrer" key={to}>
+                  {label}
+                </a>
+              ) : (
+                <Link to={to} key={to}>
+                  {label}
+                </Link>
+              )
+            )}
           </nav>
           <div className="footer-meta">
             <a
-              href={GITHUB_URL}
+              href={EXALYNT_GITHUB_URL}
               target="_blank"
               rel="noreferrer"
               className="icon-link icon-link-footer"
-              aria-label="John Peterson on GitHub"
+              aria-label="Exalynt on GitHub"
               title="View on GitHub"
             >
               <GitHubIcon className="icon-link-icon" />
             </a>
             <a
-              href={LINKEDIN_URL}
+              href={EXALYNT_LINKEDIN_URL}
               target="_blank"
               rel="noreferrer"
               className="icon-link icon-link-footer"
-              aria-label="John Peterson on LinkedIn"
+              aria-label="Exalynt on LinkedIn"
               title="Connect on LinkedIn"
             >
               <LinkedInIcon className="icon-link-icon" />

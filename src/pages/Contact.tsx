@@ -1,8 +1,7 @@
 import { GitHubIcon, LinkedInIcon } from "../icons";
+import { EXALYNT_GITHUB_URL, PERSONAL_LINKEDIN_URL } from "../constants";
 
 const CONTACT_EMAIL = "john.peterson@exalynt.com";
-const GITHUB_URL = "https://github.com/john-peterson-g17";
-const LINKEDIN_URL = "https://www.linkedin.com/in/john-peterson-dev/";
 
 function Contact() {
   return (
@@ -27,11 +26,11 @@ function Contact() {
           <a href={`mailto:${CONTACT_EMAIL}`} className="btn btn-primary">
             Email {CONTACT_EMAIL}
           </a>
-          <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
+          <a href={EXALYNT_GITHUB_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
             <GitHubIcon className="btn-icon" />
             GitHub
           </a>
-          <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
+          <a href={PERSONAL_LINKEDIN_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
             <LinkedInIcon className="btn-icon" />
             LinkedIn
           </a>
