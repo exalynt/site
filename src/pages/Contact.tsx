@@ -26,11 +26,21 @@ function Contact() {
           <a href={`mailto:${CONTACT_EMAIL}`} className="btn btn-primary">
             Email {CONTACT_EMAIL}
           </a>
-          <a href={EXALYNT_GITHUB_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
+          <a
+            href={EXALYNT_GITHUB_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-secondary"
+          >
             <GitHubIcon className="btn-icon" />
             GitHub
           </a>
-          <a href={PERSONAL_LINKEDIN_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
+          <a
+            href={PERSONAL_LINKEDIN_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-secondary"
+          >
             <LinkedInIcon className="btn-icon" />
             LinkedIn
           </a>

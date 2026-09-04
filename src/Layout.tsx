@@ -50,7 +50,7 @@ function Layout() {
                 <Link to={to} key={to}>
                   {label}
                 </Link>
-              )
+              ),
             )}
             <a
               href={EXALYNT_GITHUB_URL}
@@ -105,7 +105,7 @@ function Layout() {
                 <Link to={to} key={to}>
                   {label}
                 </Link>
-              )
+              ),
             )}
           </nav>
           <div className="footer-meta">

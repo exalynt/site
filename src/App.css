@@ -1000,7 +1000,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    transition: border-color 0.25s ease, background-color 0.25s ease;
+    transition:
+      border-color 0.25s ease,
+      background-color 0.25s ease;
 
     &:hover {
       transform: none;

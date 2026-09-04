@@ -53,11 +53,21 @@ function About() {
               other engineers.
             </p>
             <div className="about-actions">
-              <a href={PERSONAL_GITHUB_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
+              <a
+                href={PERSONAL_GITHUB_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-secondary"
+              >
                 <GitHubIcon className="btn-icon" />
                 GitHub
               </a>
-              <a href={PERSONAL_LINKEDIN_URL} target="_blank" rel="noreferrer" className="btn btn-secondary">
+              <a
+                href={PERSONAL_LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-secondary"
+              >
                 <LinkedInIcon className="btn-icon" />
                 LinkedIn
               </a>

@@ -32,9 +32,7 @@ export function ProjectCard({ project }: { project: Project }) {
     <div className="project-card">
       <div className="project-card-head">
         <div className="project-card-title">
-          {project.logo && (
-            <img src={project.logo} alt="" className="project-card-logo" />
-          )}
+          {project.logo && <img src={project.logo} alt="" className="project-card-logo" />}
           <h3>{project.name}</h3>
         </div>
         <span className={`status project-status-${project.status}`}>
@@ -79,7 +77,7 @@ function Projects() {
 
         <div className="project-grid">
           {STATUS_GROUPS.flatMap(({ status }) =>
-            projects.filter((project) => project.status === status)
+            projects.filter((project) => project.status === status),
           ).map((project) => (
             <ProjectCard project={project} key={project.slug ?? project.name} />
           ))}
