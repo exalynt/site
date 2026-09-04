@@ -829,20 +829,18 @@
 .status {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text);
+}
 
-  &::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--border);
-  }
+.status-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .status-live {
@@ -956,18 +954,6 @@
 }
 
 /* Project cards — shared between the homepage "Building" preview and /projects */
-.project-group {
-  margin-top: 48px;
-
-  &:first-of-type {
-    margin-top: 0;
-  }
-
-  h2 {
-    margin: 0 0 24px;
-  }
-}
-
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -983,12 +969,42 @@
   border: 1px solid var(--border);
   border-radius: 4px;
   background: var(--bg);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 
   p {
     font-size: 15px;
     line-height: 1.6;
     margin: 12px 0 0;
     color: var(--text);
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    background: var(--bg-alt);
+    box-shadow:
+      0 24px 48px -24px rgb(59 130 246 / 35%),
+      0 12px 24px -16px rgb(0 0 0 / 22%);
+  }
+
+  &:hover h3 {
+    color: var(--accent);
+  }
+
+  &:hover .project-card-logo {
+    transform: scale(1.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+
+    &:hover {
+      transform: none;
+    }
   }
 }
 
@@ -1000,19 +1016,32 @@
 
   h3 {
     margin: 0;
+    transition: color 0.25s ease;
   }
 }
 
+.project-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.project-card-logo {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  transition: transform 0.25s ease;
+}
+
 .project-status-active,
+.project-status-in-development,
 .project-status-open-source,
 .project-status-maintained,
 .project-status-experiment {
   color: var(--accent);
   flex-shrink: 0;
-
-  &::before {
-    background: var(--accent);
-  }
 }
 
 .project-status-coming-soon,

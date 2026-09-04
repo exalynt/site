@@ -3,7 +3,13 @@
 // actual project before it ships, or delete the entry if it's not ready.
 
 export type ProjectStatus =
-  "active" | "open-source" | "experiment" | "coming-soon" | "maintained" | "archived";
+  | "active"
+  | "in-development"
+  | "open-source"
+  | "experiment"
+  | "coming-soon"
+  | "maintained"
+  | "archived";
 
 export type Project = {
   name: string;
@@ -20,23 +26,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "Project details coming soon",
+    name: "Harvor",
+    slug: "harvor",
     description:
-      "The first thing built under the Exalynt name is still taking shape. Check back soon for details.",
-    status: "coming-soon",
-    featured: true,
-  },
-  {
-    name: "A second project in the works",
-    description:
-      "Another idea currently being explored. More to share once there's something worth showing.",
-    status: "coming-soon",
+      "Production-ready foundational services — authorization, organizations, audit logs, and events — so engineering teams stop rebuilding the same plumbing for every new product. Fully observable, configurable, and open source under Apache 2.0.",
+    status: "in-development",
+    website: "https://harvor.io",
+    github: "https://github.com/harvor-io",
+    logo: "/harvor-logo.svg",
     featured: true,
   },
 ];
 
 export const STATUS_LABEL: Record<ProjectStatus, string> = {
   active: "Active",
+  "in-development": "In Development",
   "open-source": "Open Source",
   experiment: "Experiment",
   "coming-soon": "Coming Soon",
@@ -46,6 +50,7 @@ export const STATUS_LABEL: Record<ProjectStatus, string> = {
 
 export const STATUS_GROUPS: { status: ProjectStatus; title: string }[] = [
   { status: "active", title: "Active" },
+  { status: "in-development", title: "In Development" },
   { status: "open-source", title: "Open Source" },
   { status: "experiment", title: "Experiments" },
   { status: "coming-soon", title: "Coming Soon" },

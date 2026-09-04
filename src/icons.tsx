@@ -173,6 +173,89 @@ export function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
+export function LiveSignalIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="2.2" fill="currentColor" />
+      <path
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        d="M8.3 8.3a5.2 5.2 0 0 0 0 7.4M15.7 8.3a5.2 5.2 0 0 1 0 7.4M5.4 5.4a9.3 9.3 0 0 0 0 13.2M18.6 5.4a9.3 9.3 0 0 1 0 13.2"
+      />
+    </svg>
+  );
+}
+
+export function ProgressDotsIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <circle cx="5" cy="12" r="1.8" />
+      <circle cx="12" cy="12" r="1.8" opacity="0.6" />
+      <circle cx="19" cy="12" r="1.8" opacity="0.3" />
+    </svg>
+  );
+}
+
+export function FlaskIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9.5 3.5h5M10 3.5v6.2L5.8 17a2 2 0 0 0 1.7 3h9a2 2 0 0 0 1.7-3L14 9.7V3.5"
+      />
+      <path stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" d="M7.8 14.5h8.4" />
+    </svg>
+  );
+}
+
+export function ClockIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.6" />
+      <path stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" d="M12 7.5V12l3.3 2" />
+    </svg>
+  );
+}
+
+export function ShieldCheckIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+        d="M12 3.5 18.5 6v5.5c0 4.4-2.8 7.6-6.5 9-3.7-1.4-6.5-4.6-6.5-9V6Z"
+      />
+      <path
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9 12.2l2 2 4-4.4"
+      />
+    </svg>
+  );
+}
+
+export function ArchiveIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" d="M4 5.5h16v3.4H4z" />
+      <path
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+        d="M5.5 8.9v9.1a.7.7 0 0 0 .7.7h11.6a.7.7 0 0 0 .7-.7V8.9"
+      />
+      <path stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" d="M10 12.6h4" />
+    </svg>
+  );
+}
+
 export function GitHubIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

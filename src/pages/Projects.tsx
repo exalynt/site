@@ -1,11 +1,44 @@
-import { projects, STATUS_GROUPS, STATUS_LABEL, type Project } from "../content/projects";
+import type { ComponentType } from "react";
+import {
+  ArchiveIcon,
+  ClockIcon,
+  FlaskIcon,
+  GitHubIcon as GitHubStatusIcon,
+  LiveSignalIcon,
+  ProgressDotsIcon,
+  ShieldCheckIcon,
+} from "../icons";
+import {
+  projects,
+  STATUS_GROUPS,
+  STATUS_LABEL,
+  type Project,
+  type ProjectStatus,
+} from "../content/projects";
+
+const STATUS_ICON: Record<ProjectStatus, ComponentType<{ className?: string }>> = {
+  active: LiveSignalIcon,
+  "in-development": ProgressDotsIcon,
+  "open-source": GitHubStatusIcon,
+  experiment: FlaskIcon,
+  "coming-soon": ClockIcon,
+  maintained: ShieldCheckIcon,
+  archived: ArchiveIcon,
+};
 
 export function ProjectCard({ project }: { project: Project }) {
+  const StatusIcon = STATUS_ICON[project.status];
   return (
     <div className="project-card">
       <div className="project-card-head">
-        <h3>{project.name}</h3>
+        <div className="project-card-title">
+          {project.logo && (
+            <img src={project.logo} alt="" className="project-card-logo" />
+          )}
+          <h3>{project.name}</h3>
+        </div>
         <span className={`status project-status-${project.status}`}>
+          <StatusIcon className="status-icon" />
           {STATUS_LABEL[project.status]}
         </span>
       </div>
@@ -44,20 +77,13 @@ function Projects() {
           </p>
         </div>
 
-        {STATUS_GROUPS.map(({ status, title }) => {
-          const group = projects.filter((project) => project.status === status);
-          if (group.length === 0) return null;
-          return (
-            <div className="project-group" key={status}>
-              <h2>{title}</h2>
-              <div className="project-grid">
-                {group.map((project) => (
-                  <ProjectCard project={project} key={project.slug ?? project.name} />
-                ))}
-              </div>
-            </div>
-          );
-        })}
+        <div className="project-grid">
+          {STATUS_GROUPS.flatMap(({ status }) =>
+            projects.filter((project) => project.status === status)
+          ).map((project) => (
+            <ProjectCard project={project} key={project.slug ?? project.name} />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Harvor H Icon</title>
+  <desc id="desc">Navy rounded square with a white H.</desc>
+
+  <rect
+    class="icon-bg"
+    x="40"
+    y="40"
+    width="432"
+    height="432"
+    rx="92"
+    fill="var(--harvor-icon-color, #3566F5)"
+  />
+
+  <!-- Left vertical stroke -->
+  <rect x="129" y="116" width="54" height="280" rx="27" fill="#fff"/>
+
+  <!-- Right vertical stroke -->
+  <rect x="329" y="116" width="54" height="280" rx="27" fill="#fff"/>
+
+  <!-- Curved bridge -->
+  <path
+    fill="#fff"
+    d="M183 240
+       C220 260 263 264 329 226
+       L329 280
+       C277 312 221 308 183 288
+       Z"
+  />
+</svg>
