@@ -1,20 +1,5 @@
 import { useContactModal } from "../../../useContactModal";
 
-const ENGAGEMENT_SUMMARY = [
-  "$225/hour",
-  "Agree on a spending limit before work starts",
-  "Start with a small investigation",
-  "Receive source code for your custom deliverables under the agreement",
-];
-
-const JUMP_LINKS = [
-  { to: "#how-we-help", label: "What we build" },
-  { to: "#start-small", label: "Getting started" },
-  { to: "#pricing", label: "Pricing" },
-  { to: "#how-we-build", label: "Process" },
-  { to: "#ownership", label: "Ownership & support" },
-];
-
 function HeroSection() {
   const { openContactModal } = useContactModal();
   return (
@@ -36,17 +21,6 @@ function HeroSection() {
           <button type="button" className="btn btn-primary" onClick={openContactModal}>
             Start a Conversation →
           </button>
-        </div>
-
-        <div className="engagement-summary-bar">
-          <p className="engagement-summary">{ENGAGEMENT_SUMMARY.join(" · ")}</p>
-          <nav className="section-jump-nav" aria-label="Jump to a section on this page">
-            {JUMP_LINKS.map(({ to, label }) => (
-              <a href={to} key={to}>
-                {label}
-              </a>
-            ))}
-          </nav>
         </div>
       </div>
     </section>

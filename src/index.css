@@ -3,6 +3,7 @@
 :root {
   --sans: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --heading: var(--sans);
+  --header-height: 71px;
 
   font: 16px/1.6 var(--sans);
   color-scheme: light dark;
