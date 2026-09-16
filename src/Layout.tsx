@@ -1,12 +1,15 @@
-import { Link, Outlet } from "react-router-dom";
-import { GitHubIcon, LinkedInIcon, Mark, MoonIcon, SunIcon } from "./icons";
+import { useEffect, useState } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { CloseIcon, GitHubIcon, LinkedInIcon, Mark, MenuIcon, MoonIcon, SunIcon } from "./icons";
 import { useTheme } from "./useTheme";
 import { EXALYNT_BLOG_URL, EXALYNT_GITHUB_URL, EXALYNT_LINKEDIN_URL } from "./constants";
 
 const NAV_LINKS = [
-  { to: "/engineering", label: "Engineering" },
-  { to: EXALYNT_BLOG_URL, label: "Blog", external: true },
+  { to: "/", label: "Home" },
+  { to: "/philosophy", label: "Philosophy" },
+  { to: "/work-with-us", label: "Work With Us" },
   { to: "/projects", label: "Projects" },
+  { to: EXALYNT_BLOG_URL, label: "Blog", external: true },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
@@ -32,6 +35,27 @@ function ThemeToggle() {
 }
 
 function Layout() {
+  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [lastPathname, setLastPathname] = useState(location.pathname);
+
+  if (location.pathname !== lastPathname) {
+    setLastPathname(location.pathname);
+    setMenuOpen(false);
+  }
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setMenuOpen(false);
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+  const navTabIndex = menuOpen ? undefined : -1;
+
   return (
     <>
       <header className="site-header">
@@ -76,7 +100,70 @@ function Layout() {
             <Link to="/contact" className="btn btn-primary btn-sm">
               Get in touch
             </Link>
+            <button
+              type="button"
+              className="nav-toggle"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              {menuOpen ? (
+                <CloseIcon className="nav-toggle-icon" />
+              ) : (
+                <MenuIcon className="nav-toggle-icon" />
+              )}
+            </button>
           </nav>
+        </div>
+
+        <div id="mobile-nav" className={`mobile-nav${menuOpen ? " is-open" : ""}`}>
+          <div className="mobile-nav-content" aria-hidden={!menuOpen}>
+            <nav className="container mobile-nav-links">
+              {NAV_LINKS.map(({ to, label, external }) =>
+                external ? (
+                  <a
+                    href={to}
+                    target="_blank"
+                    rel="noreferrer"
+                    key={to}
+                    tabIndex={navTabIndex}
+                    onClick={closeMenu}
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <Link to={to} key={to} tabIndex={navTabIndex} onClick={closeMenu}>
+                    {label}
+                  </Link>
+                ),
+              )}
+            </nav>
+            <div className="container mobile-nav-footer">
+              <a
+                href={EXALYNT_GITHUB_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="icon-link"
+                aria-label="Exalynt on GitHub"
+                title="View on GitHub"
+                tabIndex={navTabIndex}
+              >
+                <GitHubIcon className="icon-link-icon" />
+              </a>
+              <a
+                href={EXALYNT_LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="icon-link"
+                aria-label="Exalynt on LinkedIn"
+                title="Connect on LinkedIn"
+                tabIndex={navTabIndex}
+              >
+                <LinkedInIcon className="icon-link-icon" />
+              </a>
+            </div>
+          </div>
         </div>
       </header>
 

@@ -68,10 +68,10 @@ function Projects() {
       <div className="container">
         <div className="section-intro">
           <p className="eyebrow">Building</p>
-          <h1>Things I&rsquo;m building.</h1>
+          <h1>What we&rsquo;re building.</h1>
           <p>
-            Projects, open-source software, experiments, and other things I&rsquo;m currently
-            exploring.
+            Products, open-source software, experiments, and other things Exalynt is currently
+            building or contributing to.
           </p>
         </div>
 

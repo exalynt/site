@@ -47,10 +47,11 @@ function About() {
               treating every mistake as the fastest way to learn something worth keeping.
             </p>
             <p>
-              Exalynt comes from an interest in understanding and encouraging excellence in software
-              engineering. It&rsquo;s a place to articulate engineering principles, write about
-              lessons and ideas, build software, experiment, share what I learn, and connect with
-              other engineers.
+              Exalynt is the company I founded and run: it builds custom software for organizations,
+              software products, and open-source tools &mdash; all under one roof. When you work
+              with Exalynt, you work directly with me; there&rsquo;s no hand-off to a larger team.
+              Exalynt is also where I articulate engineering principles, write about lessons and
+              ideas, experiment, and connect with other engineers.
             </p>
             <div className="about-actions">
               <a

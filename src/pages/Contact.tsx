@@ -10,15 +10,15 @@ function Contact() {
         <div className="section-intro">
           <p className="eyebrow">Get in touch</p>
           <h1>Say hello.</h1>
-          <p>You don&rsquo;t need a project or consulting engagement to reach out.</p>
           <p>
-            If you want to talk about something I&rsquo;ve written, software architecture, an
-            interesting problem you&rsquo;re working through, something you&rsquo;re building, or
-            engineering in general, send me a note.
+            Exalynt builds custom software, products, and open-source tools. If you have a problem
+            you think we could help solve, tell me about it.
           </p>
           <p>
-            And if you&rsquo;re looking for consulting or contract engineering help, I&rsquo;m open
-            to hearing about that too.
+            You don&rsquo;t need a project or consulting engagement to reach out, though. I&rsquo;m
+            also happy to talk about something I&rsquo;ve written, software architecture, an
+            interesting problem you&rsquo;re working through, something you&rsquo;re building, or
+            engineering in general.
           </p>
         </div>
 
