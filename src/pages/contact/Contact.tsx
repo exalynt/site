@@ -1,5 +1,5 @@
-import { GitHubIcon, LinkedInIcon } from "../icons";
-import { EXALYNT_GITHUB_URL, PERSONAL_LINKEDIN_URL } from "../constants";
+import { GitHubIcon, LinkedInIcon } from "../../icons";
+import { EXALYNT_GITHUB_URL, PERSONAL_LINKEDIN_URL } from "../../constants";
 
 const CONTACT_EMAIL = "john.peterson@exalynt.com";
 

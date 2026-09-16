@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider, ScrollRestoration } from "react-router-dom";
 import "./App.css";
 import Layout from "./Layout";
-import Home from "./pages/Home";
-import Philosophy from "./pages/Philosophy";
-import Projects from "./pages/Projects";
-import WorkWithUs from "./pages/WorkWithUs";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Home from "./pages/home/Home";
+import Philosophy from "./pages/philosophy/Philosophy";
+import Projects from "./pages/projects/Projects";
+import WorkWithUs from "./pages/work-with-us/WorkWithUs";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
 
 const router = createBrowserRouter([
   {

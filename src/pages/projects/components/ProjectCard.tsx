@@ -7,14 +7,8 @@ import {
   LiveSignalIcon,
   ProgressDotsIcon,
   ShieldCheckIcon,
-} from "../icons";
-import {
-  projects,
-  STATUS_GROUPS,
-  STATUS_LABEL,
-  type Project,
-  type ProjectStatus,
-} from "../content/projects";
+} from "../../../icons";
+import { STATUS_LABEL, type Project, type ProjectStatus } from "../../../content/projects";
 
 const STATUS_ICON: Record<ProjectStatus, ComponentType<{ className?: string }>> = {
   active: LiveSignalIcon,
@@ -61,30 +55,3 @@ export function ProjectCard({ project }: { project: Project }) {
     </div>
   );
 }
-
-function Projects() {
-  return (
-    <section className="section">
-      <div className="container">
-        <div className="section-intro">
-          <p className="eyebrow">Building</p>
-          <h1>What we&rsquo;re building.</h1>
-          <p>
-            Products, open-source software, experiments, and other things Exalynt is currently
-            building or contributing to.
-          </p>
-        </div>
-
-        <div className="project-grid">
-          {STATUS_GROUPS.flatMap(({ status }) =>
-            projects.filter((project) => project.status === status),
-          ).map((project) => (
-            <ProjectCard project={project} key={project.slug ?? project.name} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export default Projects;
