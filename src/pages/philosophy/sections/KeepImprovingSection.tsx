@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useContactModal } from "../../../useContactModal";
 
 function KeepImprovingSection() {
+  const { openContactModal } = useContactModal();
   return (
     <section id="keep-improving" className="idea-section surface-dark deep">
       <div className="container idea-inner">
@@ -16,9 +18,9 @@ function KeepImprovingSection() {
           <Link to="/about" className="btn btn-secondary">
             About
           </Link>
-          <Link to="/contact" className="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={openContactModal}>
             Get in Touch
-          </Link>
+          </button>
         </div>
       </div>
     </section>

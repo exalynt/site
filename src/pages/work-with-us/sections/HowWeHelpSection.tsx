@@ -1,14 +1,29 @@
-const HELP_EXAMPLES = [
-  "Automating expensive or repetitive business processes",
-  "Replacing spreadsheets or manual workflows",
-  "Connecting systems that don't work well together",
-  "Building internal tools",
-  "Creating customer-facing applications",
-  "Designing APIs and integrations",
-  "Modernizing existing software",
-  "Architecture and technical strategy",
-  "Prototyping and validating new product ideas",
-  "Production engineering, infrastructure, and reliability",
+const HELP_CATEGORIES = [
+  {
+    title: "Workflow automation",
+    items: [
+      "Automating expensive or repetitive business processes",
+      "Replacing spreadsheets or manual workflows",
+      "Building internal tools",
+    ],
+  },
+  {
+    title: "Applications & integrations",
+    items: [
+      "Creating customer-facing applications",
+      "Connecting systems that don't work well together",
+      "Designing APIs and integrations",
+      "Prototyping and validating new product ideas",
+    ],
+  },
+  {
+    title: "Existing-system improvements",
+    items: [
+      "Modernizing existing software",
+      "Architecture and technical strategy",
+      "Production engineering, infrastructure, and reliability",
+    ],
+  },
 ];
 
 function HowWeHelpSection() {
@@ -24,11 +39,18 @@ function HowWeHelpSection() {
           </p>
         </div>
 
-        <ul className="check-list check-list-2col">
-          {HELP_EXAMPLES.map((example) => (
-            <li key={example}>{example}</li>
+        <div className="help-category-grid">
+          {HELP_CATEGORIES.map(({ title, items }) => (
+            <div className="help-category" key={title}>
+              <h3>{title}</h3>
+              <ul className="check-list">
+                {items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
 
         <blockquote className="pull-quote">
           You don&rsquo;t need to arrive with a software specification. Bring the problem.

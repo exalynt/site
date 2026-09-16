@@ -21,7 +21,7 @@ function PricingSection() {
 
         <div className="pricing-grid">
           <div className="price-card">
-            <span className="price-amount">$200</span>
+            <span className="price-amount">$225</span>
             <span className="price-unit">/ hour</span>
             <p className="price-note">
               Clients authorize a maximum amount of time rather than committing to an estimated

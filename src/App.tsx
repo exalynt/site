@@ -6,7 +6,6 @@ import Philosophy from "./pages/philosophy/Philosophy";
 import Projects from "./pages/projects/Projects";
 import WorkWithUs from "./pages/work-with-us/WorkWithUs";
 import About from "./pages/about/About";
-import Contact from "./pages/contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +21,6 @@ const router = createBrowserRouter([
       { path: "/projects", element: <Projects /> },
       { path: "/work-with-us", element: <WorkWithUs /> },
       { path: "/about", element: <About /> },
-      { path: "/contact", element: <Contact /> },
     ],
   },
 ]);

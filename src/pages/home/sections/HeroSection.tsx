@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { Mark } from "../../../icons";
+import { useContactModal } from "../../../useContactModal";
 
 function HeroSection() {
+  const { openContactModal } = useContactModal();
   return (
     <section id="top" className="hero">
       <Mark className="hero-watermark" />
@@ -14,9 +16,9 @@ function HeroSection() {
           applications &mdash; from understanding the problem through development and operation.
         </p>
         <div className="hero-actions">
-          <Link to="/contact" className="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={openContactModal}>
             Discuss Your Project →
-          </Link>
+          </button>
           <Link to="/projects" className="btn btn-secondary">
             Explore Products & Open Source →
           </Link>

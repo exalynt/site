@@ -3,6 +3,8 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { CloseIcon, GitHubIcon, LinkedInIcon, Mark, MenuIcon, MoonIcon, SunIcon } from "./icons";
 import { useTheme } from "./useTheme";
 import { EXALYNT_BLOG_URL, EXALYNT_GITHUB_URL, EXALYNT_LINKEDIN_URL } from "./constants";
+import { ContactModalProvider } from "./components/ContactModal";
+import { useContactModal } from "./useContactModal";
 
 const NAV_LINKS = [
   { to: "/work-with-us", label: "Custom Software" },
@@ -15,10 +17,18 @@ const FOOTER_LINKS = [
   { to: "/work-with-us", label: "Custom Software" },
   { to: "/projects", label: "Products & Open Source" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
   { to: "/philosophy", label: "Philosophy" },
   { to: EXALYNT_BLOG_URL, label: "Blog", external: true },
 ];
+
+function GetInTouchButton({ className }: { className?: string }) {
+  const { openContactModal } = useContactModal();
+  return (
+    <button type="button" className={className} onClick={openContactModal}>
+      Get in touch
+    </button>
+  );
+}
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
@@ -40,7 +50,7 @@ function ThemeToggle() {
   );
 }
 
-function Layout() {
+function LayoutContent() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [lastPathname, setLastPathname] = useState(location.pathname);
@@ -97,9 +107,7 @@ function Layout() {
               <LinkedInIcon className="icon-link-icon" />
             </a>
             <ThemeToggle />
-            <Link to="/contact" className="btn btn-primary btn-sm">
-              Get in touch
-            </Link>
+            <GetInTouchButton className="btn btn-primary btn-sm" />
             <button
               type="button"
               className="nav-toggle"
@@ -181,6 +189,7 @@ function Layout() {
                 </Link>
               ),
             )}
+            <GetInTouchButton className="footer-nav-btn" />
           </nav>
           <div className="footer-meta">
             <a
@@ -208,6 +217,14 @@ function Layout() {
         </div>
       </footer>
     </>
+  );
+}
+
+function Layout() {
+  return (
+    <ContactModalProvider>
+      <LayoutContent />
+    </ContactModalProvider>
   );
 }
 

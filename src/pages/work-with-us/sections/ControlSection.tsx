@@ -1,3 +1,12 @@
+import { useState } from "react";
+
+const HOURLY_RATE = 225;
+const MIN_HOURS = 10;
+const MAX_HOURS = 40;
+const STEP_HOURS = 10;
+const DEFAULT_HOURS = 10;
+const HOUR_MARKS = [10, 20, 30, 40];
+
 const VISIBILITY = [
   "What Exalynt is currently working on",
   "What has been completed",
@@ -16,6 +25,10 @@ const CONTROLS = [
 ];
 
 function ControlSection() {
+  const [hours, setHours] = useState(DEFAULT_HOURS);
+  const weeklyCost = hours * HOURLY_RATE;
+  const fillPercent = ((hours - MIN_HOURS) / (MAX_HOURS - MIN_HOURS)) * 100;
+
   return (
     <section id="control" className="section">
       <div className="container">
@@ -25,13 +38,47 @@ function ControlSection() {
           <p>Working hourly does not mean unlimited spending.</p>
           <p>
             Before work begins, the client and Exalynt agree on how much engineering capacity
-            Exalynt is authorized to use. For example: up to 10 hours per week at $200/hour.
+            Exalynt is authorized to use each week.
           </p>
         </div>
 
         <div className="calc-box">
-          <p className="calc-line">Up to 10 hours/week × $200/hour</p>
-          <p className="calc-result">= up to $2,000/week</p>
+          <p className="calc-eyebrow">Capacity calculator</p>
+
+          <div className="calc-slider-head">
+            <label htmlFor="hours-slider" className="calc-slider-label">
+              Weekly capacity
+            </label>
+            <span className="calc-slider-value">{hours} hrs/week</span>
+          </div>
+          <input
+            id="hours-slider"
+            type="range"
+            className="calc-slider"
+            min={MIN_HOURS}
+            max={MAX_HOURS}
+            step={STEP_HOURS}
+            value={hours}
+            onChange={(e) => setHours(Number(e.target.value))}
+            style={{
+              background: `linear-gradient(to right, var(--accent) ${fillPercent}%, var(--border) ${fillPercent}%)`,
+            }}
+          />
+          <div className="calc-slider-marks" aria-hidden="true">
+            {HOUR_MARKS.map((mark) => (
+              <span key={mark}>{mark}</span>
+            ))}
+          </div>
+
+          <div className="calc-result-row">
+            <p className="calc-line">
+              {hours} hours/week &times; ${HOURLY_RATE}/hour
+            </p>
+            <p className="calc-result">
+              <span className="calc-result-amount">${weeklyCost.toLocaleString()}</span>
+              <span className="calc-result-unit">/week</span>
+            </p>
+          </div>
         </div>
 
         <div className="control-grid">

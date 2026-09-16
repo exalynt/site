@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useContactModal } from "../../../useContactModal";
 
 function ContactCtaSection() {
+  const { openContactModal } = useContactModal();
   return (
     <section id="contact" className="cta-band surface-dark">
       <div className="container">
@@ -12,9 +14,9 @@ function ContactCtaSection() {
           glad to hear from you.
         </p>
         <div className="cta-actions">
-          <Link to="/contact" className="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={openContactModal}>
             Discuss Your Project →
-          </Link>
+          </button>
           <Link to="/work-with-us" className="btn btn-secondary">
             See how we work →
           </Link>

@@ -1,6 +1,6 @@
 function ClientDataSection() {
   return (
-    <section id="client-data" className="section section-alt">
+    <section id="client-data" className="section">
       <div className="container">
         <div className="section-intro">
           <p className="eyebrow">Your data</p>

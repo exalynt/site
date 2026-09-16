@@ -282,6 +282,35 @@ export function CloseIcon({ className }: { className?: string }) {
   );
 }
 
+export function MailIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" d="M4 6h16v12H4z" />
+      <path
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m4.5 6.5 7.5 6.5 7.5-6.5"
+      />
+    </svg>
+  );
+}
+
+export function CopyIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" d="M9.5 9.5h9v9h-9z" />
+      <path
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+        d="M14.5 9.5V5.5h-9v9h4"
+      />
+    </svg>
+  );
+}
+
 export function GitHubIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

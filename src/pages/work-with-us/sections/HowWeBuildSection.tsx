@@ -1,4 +1,4 @@
-const FLOW_STEPS = ["Understand", "Build", "Use", "Learn", "Decide"];
+import { BuildCycleDiagram } from "../components/BuildCycleDiagram";
 
 const PROCESS = [
   {
@@ -34,35 +34,15 @@ function HowWeBuildSection() {
       <div className="container">
         <div className="section-intro">
           <p className="eyebrow">How we build</p>
-          <h2>Understand → Build → Use → Learn → Decide.</h2>
-          <p>Rather than committing to a fixed plan up front, we work in short, honest cycles.</p>
+          <h2>A short cycle, repeated.</h2>
+          <p>
+            Rather than committing to a fixed plan up front, we work in short, honest cycles. Short
+            cycles mean fast feedback &mdash; so when something&rsquo;s off, we find out in days,
+            not months, and course-correct before much time or money is spent.
+          </p>
         </div>
 
-        <div className="purpose-flow">
-          {FLOW_STEPS.map((step, i) => (
-            <div className="flow-step-wrap" key={step}>
-              <span className="flow-step">{step}</span>
-              {i < FLOW_STEPS.length - 1 && <span className="flow-arrow" aria-hidden="true" />}
-            </div>
-          ))}
-        </div>
-
-        <ol className="approach-list">
-          {PROCESS.map(({ num, title, body }) => (
-            <li key={title}>
-              <span className="approach-num">{num}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        <p className="flow-outcome">
-          Then we repeat &mdash; using what we&rsquo;ve learned to decide what deserves investment
-          next.
-        </p>
+        <BuildCycleDiagram steps={PROCESS} />
       </div>
     </section>
   );

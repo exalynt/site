@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useContactModal } from "../../../useContactModal";
 
 function WorkingWithMeSection() {
+  const { openContactModal } = useContactModal();
   return (
     <section className="section section-alt working-with-me">
       <div className="container">
@@ -15,9 +16,9 @@ function WorkingWithMeSection() {
             and guidance.
           </p>
         </div>
-        <Link to="/contact" className="btn btn-secondary">
+        <button type="button" className="btn btn-secondary" onClick={openContactModal}>
           Get in touch →
-        </Link>
+        </button>
       </div>
     </section>
   );

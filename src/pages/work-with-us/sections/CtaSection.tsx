@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
-
-const CONTACT_EMAIL = "john.peterson@exalynt.com";
+import { useContactModal } from "../../../useContactModal";
 
 function CtaSection() {
+  const { openContactModal } = useContactModal();
   return (
     <section id="cta" className="cta-band surface-dark">
       <div className="container">
@@ -13,12 +12,9 @@ function CtaSection() {
           and see where it leads.
         </p>
         <div className="cta-actions">
-          <a href={`mailto:${CONTACT_EMAIL}`} className="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={openContactModal}>
             Start a Conversation →
-          </a>
-          <Link to="/contact" className="btn btn-secondary">
-            More ways to get in touch →
-          </Link>
+          </button>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-const CONTACT_EMAIL = "john.peterson@exalynt.com";
+import { useContactModal } from "../../../useContactModal";
 
 const CLIENT_OWNED_POINTS = [
   "Client owns the custom software/deliverables defined by the agreement.",
@@ -19,14 +19,19 @@ const HOSTED_POINTS = [
 ];
 
 function OwnershipSection() {
+  const { openContactModal } = useContactModal();
   return (
-    <section id="ownership" className="section">
+    <section id="ownership" className="section section-alt">
       <div className="container">
         <div className="section-intro">
           <p className="eyebrow">Ownership</p>
           <h2>Who owns what we build?</h2>
           <p>
             Different problems call for different arrangements. Exalynt supports two broad models.
+          </p>
+          <p>
+            Hosting and ownership are separate decisions: Exalynt can operate software you own, so
+            the model below only applies when Exalynt itself funds and owns the product.
           </p>
         </div>
 
@@ -43,13 +48,13 @@ function OwnershipSection() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="btn btn-secondary">
+            <button type="button" className="btn btn-secondary" onClick={openContactModal}>
               Build Software You Own →
-            </a>
+            </button>
           </div>
 
           <div className="ownership-card">
-            <p className="ownership-subtitle">Let Exalynt operate it.</p>
+            <p className="ownership-subtitle">Exalynt funds and owns it.</p>
             <h3>Exalynt-Owned &amp; Hosted Software</h3>
             <p>
               Sometimes a client problem represents an opportunity for software that could provide
@@ -86,7 +91,7 @@ function OwnershipSection() {
               </tr>
               <tr>
                 <td>Development</td>
-                <td>$200/hour</td>
+                <td>$225/hour</td>
                 <td>Depends on arrangement</td>
               </tr>
               <tr>
