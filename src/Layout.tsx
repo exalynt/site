@@ -5,13 +5,19 @@ import { useTheme } from "./useTheme";
 import { EXALYNT_BLOG_URL, EXALYNT_GITHUB_URL, EXALYNT_LINKEDIN_URL } from "./constants";
 
 const NAV_LINKS = [
+  { to: "/work-with-us", label: "Custom Software" },
+  { to: "/projects", label: "Products & Open Source" },
+  { to: "/about", label: "About" },
+];
+
+const FOOTER_LINKS = [
   { to: "/", label: "Home" },
-  { to: "/philosophy", label: "Philosophy" },
-  { to: "/work-with-us", label: "Work With Us" },
-  { to: "/projects", label: "Projects" },
-  { to: EXALYNT_BLOG_URL, label: "Blog", external: true },
+  { to: "/work-with-us", label: "Custom Software" },
+  { to: "/projects", label: "Products & Open Source" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
+  { to: "/philosophy", label: "Philosophy" },
+  { to: EXALYNT_BLOG_URL, label: "Blog", external: true },
 ];
 
 function ThemeToggle() {
@@ -65,17 +71,11 @@ function Layout() {
             <span>EXALYNT</span>
           </Link>
           <nav className="site-nav">
-            {NAV_LINKS.map(({ to, label, external }) =>
-              external ? (
-                <a href={to} target="_blank" rel="noreferrer" key={to}>
-                  {label}
-                </a>
-              ) : (
-                <Link to={to} key={to}>
-                  {label}
-                </Link>
-              ),
-            )}
+            {NAV_LINKS.map(({ to, label }) => (
+              <Link to={to} key={to}>
+                {label}
+              </Link>
+            ))}
             <a
               href={EXALYNT_GITHUB_URL}
               target="_blank"
@@ -120,24 +120,11 @@ function Layout() {
         <div id="mobile-nav" className={`mobile-nav${menuOpen ? " is-open" : ""}`}>
           <div className="mobile-nav-content" aria-hidden={!menuOpen}>
             <nav className="container mobile-nav-links">
-              {NAV_LINKS.map(({ to, label, external }) =>
-                external ? (
-                  <a
-                    href={to}
-                    target="_blank"
-                    rel="noreferrer"
-                    key={to}
-                    tabIndex={navTabIndex}
-                    onClick={closeMenu}
-                  >
-                    {label}
-                  </a>
-                ) : (
-                  <Link to={to} key={to} tabIndex={navTabIndex} onClick={closeMenu}>
-                    {label}
-                  </Link>
-                ),
-              )}
+              {NAV_LINKS.map(({ to, label }) => (
+                <Link to={to} key={to} tabIndex={navTabIndex} onClick={closeMenu}>
+                  {label}
+                </Link>
+              ))}
             </nav>
             <div className="container mobile-nav-footer">
               <a
@@ -183,7 +170,7 @@ function Layout() {
             <span>EXALYNT</span>
           </Link>
           <nav className="footer-nav">
-            {NAV_LINKS.map(({ to, label, external }) =>
+            {FOOTER_LINKS.map(({ to, label, external }) =>
               external ? (
                 <a href={to} target="_blank" rel="noreferrer" key={to}>
                   {label}

@@ -1054,6 +1054,14 @@
   }
 }
 
+.offering-grid {
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .project-card {
   padding: 28px;
   border: 1px solid var(--border);

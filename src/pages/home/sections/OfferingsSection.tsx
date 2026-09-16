@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
-import { BracketsIcon, PeopleIcon } from "../../../icons";
+import { BranchIcon, LiveSignalIcon, PeopleIcon } from "../../../icons";
 
 const OFFERINGS = [
   {
-    icon: BracketsIcon,
-    title: "Products & Open Source",
-    tagline: "Software built, operated, and shared in the open by Exalynt.",
-    body: "We identify problems shared by many organizations, build solutions, and make those solutions available as products, hosted services, and open-source libraries and tools.",
-    cta: "Explore Products & Open Source",
+    icon: LiveSignalIcon,
+    title: "Products",
+    tagline: "Software Exalynt builds and operates for you.",
+    body: "We identify problems shared by many organizations and build solutions to them, then offer those solutions as hosted products that Exalynt runs, maintains, and supports.",
+    cta: "Explore Products",
+    to: "/projects",
+  },
+  {
+    icon: BranchIcon,
+    title: "Open Source",
+    tagline: "Tools and libraries released for anyone to use.",
+    body: "Some of what we build is released under open licenses — free to inspect, self-host, and contribute to, with no dependency on Exalynt to keep it running.",
+    cta: "Explore Open Source",
     to: "/projects",
   },
   {
@@ -33,7 +41,7 @@ function OfferingsSection() {
           </p>
         </div>
 
-        <div className="project-grid">
+        <div className="project-grid offering-grid">
           {OFFERINGS.map(({ icon: Icon, title, tagline, body, cta, to }) => (
             <Link to={to} className="project-card offering-card" key={title}>
               <Icon className="offering-icon" />
