@@ -87,7 +87,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 0;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 .brand {
@@ -159,9 +160,13 @@
   }
 
   @media (max-width: 768px) {
-    gap: 16px;
+    gap: 12px;
 
     a:not(.btn):not(.icon-link) {
+      display: none;
+    }
+
+    .icon-link {
       display: none;
     }
   }
