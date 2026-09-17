@@ -36,8 +36,9 @@ function HowWeHelpSection() {
           <p>
             Every engagement starts with a problem, not a technology. You don&rsquo;t need a
             software specification, a multi-month commitment, or even a clear idea of what should be
-            built &mdash; start with a few hours and we&rsquo;ll explore the problem together.
-            Sometimes the right answer is not to build anything, and that is a successful outcome.
+            built &mdash; start with a single block of engineering capacity and we&rsquo;ll explore
+            the problem together. Sometimes the right answer is not to build anything, and that is a
+            successful outcome.
           </p>
           <p>Some examples of the kinds of problems we help organizations work through:</p>
         </div>

@@ -24,7 +24,7 @@ const PROCESS = [
   {
     num: "05",
     title: "Decide",
-    body: "Review what we accomplished and learned, then decide together whether to continue, reprioritize, pivot, adjust capacity, pause, or stop.",
+    body: "Review what we accomplished and learned, then decide together whether to continue, reprioritize, pivot, adjust engineering capacity, pause, or stop.",
   },
 ];
 
@@ -40,6 +40,11 @@ function HowWeBuildSection() {
             a deliberate checkpoint: we stop, review what happened, and decide what&rsquo;s next
             before continuing. That keeps feedback fast, so when something&rsquo;s off, we find out
             in days, not months.
+          </p>
+          <p>
+            Engineering capacity and iteration length are separate decisions. Capacity sets how much
+            you&rsquo;re investing; the iteration sets how soon you get to judge whether that
+            investment is working.
           </p>
         </div>
 

@@ -41,7 +41,7 @@ function OwnershipSection() {
             <h3>Client-Owned Software</h3>
             <p>
               For organizations that want custom software built specifically for their business. The
-              client funds the engineering work at the standard hourly rate.
+              client funds the engineering work by authorizing engineering capacity.
             </p>
             <ul className="check-list">
               {CLIENT_OWNED_POINTS.map((item) => (
@@ -91,7 +91,7 @@ function OwnershipSection() {
               </tr>
               <tr>
                 <td>Development</td>
-                <td>$225/hour</td>
+                <td>$2,250 per engineering capacity block</td>
                 <td>Depends on arrangement</td>
               </tr>
               <tr>
@@ -101,7 +101,7 @@ function OwnershipSection() {
               </tr>
               <tr>
                 <td>Maintenance</td>
-                <td>Client or hourly Exalynt engagement</td>
+                <td>Client, or continued Exalynt capacity</td>
                 <td>Exalynt</td>
               </tr>
               <tr>

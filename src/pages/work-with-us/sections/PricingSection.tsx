@@ -2,12 +2,11 @@ import { useState } from "react";
 import { InfoIcon } from "../../../icons";
 import { EstimatesModal } from "../components/EstimatesModal";
 
-const HOURLY_RATE = 225;
-const MIN_HOURS = 10;
-const MAX_HOURS = 40;
-const STEP_HOURS = 10;
-const DEFAULT_HOURS = 10;
-const HOUR_MARKS = [10, 20, 30, 40];
+const BLOCK_PRICE = 2250;
+const BLOCK_HOURS = 10;
+const REFERENCE_RATE = 225;
+const BLOCK_OPTIONS = [1, 2, 3, 4];
+const DEFAULT_BLOCKS = 1;
 
 const PRICING_INCLUDES = [
   "Discovery",
@@ -22,10 +21,10 @@ const PRICING_INCLUDES = [
 ];
 
 function PricingSection() {
-  const [hours, setHours] = useState(DEFAULT_HOURS);
+  const [blocks, setBlocks] = useState(DEFAULT_BLOCKS);
   const [estimatesModalOpen, setEstimatesModalOpen] = useState(false);
-  const weeklyCost = hours * HOURLY_RATE;
-  const fillPercent = ((hours - MIN_HOURS) / (MAX_HOURS - MIN_HOURS)) * 100;
+  const authorizedInvestment = blocks * BLOCK_PRICE;
+  const approximateHours = blocks * BLOCK_HOURS;
 
   return (
     <section id="pricing" className="section">
@@ -34,9 +33,14 @@ function PricingSection() {
           <p className="eyebrow">Pricing</p>
           <h2>Choose how much to invest.</h2>
           <p>
-            Capacity controls the size of the investment. Iterations control the length of the
-            feedback loop &mdash; usually one week, when we review progress together and decide
-            what&rsquo;s next.
+            Engineering capacity controls the size of your investment. Iterations control the
+            feedback loop &mdash; usually one week, occasionally two, ending in a review where we
+            decide together what&rsquo;s next.
+          </p>
+          <p>
+            Capacity is purchased in blocks rather than billable hours. Authorize the capacity
+            you&rsquo;re comfortable investing; we&rsquo;ll use it to pursue the most valuable work
+            and review the results with you at the end of the iteration.
           </p>
           <button
             type="button"
@@ -50,51 +54,65 @@ function PricingSection() {
 
         <div className="pricing-grid">
           <div className="price-card">
-            <span className="price-amount">$225</span>
-            <span className="price-unit">/ hour</span>
+            <span className="price-amount">${BLOCK_PRICE.toLocaleString()}</span>
+            <span className="price-unit">Engineering Capacity Block</span>
+            <span className="price-approx">
+              &asymp; {BLOCK_HOURS} hours of engineering capacity
+            </span>
+            <span className="price-reference">${REFERENCE_RATE}/hour reference rate</span>
             <p className="price-note">
-              The ceiling on what we&rsquo;re authorized to spend each week &mdash; not a promise
-              about which features ship by when.
+              A block is a bounded amount of Exalynt&rsquo;s attention and expertise. Hours are a
+              familiar way to picture its size &mdash; not a timesheet, and not a fixed scope of
+              work.
             </p>
           </div>
 
           <div className="calc-box">
             <p className="calc-eyebrow">Capacity calculator</p>
 
-            <div className="calc-slider-head">
-              <label htmlFor="hours-slider" className="calc-slider-label">
-                Weekly capacity
-              </label>
-              <span className="calc-slider-value">{hours} hrs/week</span>
+            <div className="calc-head">
+              <span className="calc-label">Engineering capacity</span>
+              <span className="calc-value">
+                {blocks} {blocks === 1 ? "block" : "blocks"}
+              </span>
             </div>
-            <input
-              id="hours-slider"
-              type="range"
-              className="calc-slider"
-              min={MIN_HOURS}
-              max={MAX_HOURS}
-              step={STEP_HOURS}
-              value={hours}
-              onChange={(e) => setHours(Number(e.target.value))}
-              style={{
-                background: `linear-gradient(to right, var(--accent) ${fillPercent}%, var(--border) ${fillPercent}%)`,
-              }}
-            />
-            <div className="calc-slider-marks" aria-hidden="true">
-              {HOUR_MARKS.map((mark) => (
-                <span key={mark}>{mark}</span>
+
+            <div
+              className="capacity-options"
+              role="radiogroup"
+              aria-label="Engineering capacity blocks"
+            >
+              {BLOCK_OPTIONS.map((count) => (
+                <label
+                  key={count}
+                  className={`capacity-option${count === blocks ? " is-selected" : ""}`}
+                >
+                  <input
+                    type="radio"
+                    name="capacity-blocks"
+                    value={count}
+                    checked={count === blocks}
+                    onChange={() => setBlocks(count)}
+                  />
+                  <span className="capacity-option-count">{count}</span>
+                  <span className="capacity-option-label">{count === 1 ? "block" : "blocks"}</span>
+                </label>
               ))}
             </div>
 
             <div className="calc-result-row">
-              <p className="calc-line">
-                {hours} hours/week &times; ${HOURLY_RATE}/hour
-              </p>
+              <p className="calc-line">&asymp; {approximateHours} hours of engineering capacity</p>
               <p className="calc-result">
-                <span className="calc-result-amount">${weeklyCost.toLocaleString()}</span>
-                <span className="calc-result-unit">/week</span>
+                <span className="calc-result-amount">${authorizedInvestment.toLocaleString()}</span>
+                <span className="calc-result-unit">authorized investment</span>
               </p>
             </div>
+
+            <p className="calc-note">
+              Authorize capacity as you need it, or prepay blocks in advance. Authorizing more than
+              one block doesn&rsquo;t commit you to a long-term engagement &mdash; the iteration
+              review is still where we decide what happens next.
+            </p>
           </div>
         </div>
 
@@ -106,8 +124,8 @@ function PricingSection() {
             ))}
           </ul>
           <p>
-            Need only a few hours to investigate something? Start there. Capacity can change at any
-            iteration review as needs evolve.
+            Want to investigate something small first? A single block is a reasonable place to
+            start. Capacity can change at any iteration review as needs evolve.
           </p>
         </div>
       </div>

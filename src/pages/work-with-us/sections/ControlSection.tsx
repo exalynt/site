@@ -4,14 +4,14 @@ const VISIBILITY = [
   "What has been learned",
   "What decisions need to be made",
   "What Exalynt recommends exploring next",
-  "How much time has been used",
+  "How much of your authorized engineering capacity has been used",
 ];
 
 const DECISIONS = [
   "Continue in the current direction",
   "Reprioritize — something else has become more valuable",
   "Pivot based on what we learned",
-  "Adjust capacity up or down",
+  "Adjust engineering capacity up or down",
   "Pause before investing further",
   "Stop — the problem is solved, or it’s no longer worth it",
 ];
@@ -61,8 +61,12 @@ function ControlSection() {
         <div className="commitment-box">
           <p className="eyebrow">The Exalynt Commitment</p>
           <p className="commitment-lead">
-            We won&rsquo;t exceed your approved capacity without your agreement, and you keep
-            everything we build along the way.
+            We won&rsquo;t exceed the engineering capacity you&rsquo;ve authorized without your
+            agreement, and you keep everything we build along the way.
+          </p>
+          <p>
+            If reaching a sensible stopping point takes a little more effort than we expected,
+            that&rsquo;s our responsibility &mdash; not an automatic increase to your bill.
           </p>
           <p>
             At the end of each iteration, we&rsquo;ll show you what we did, what we learned, and
