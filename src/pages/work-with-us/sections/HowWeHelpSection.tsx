@@ -32,11 +32,14 @@ function HowWeHelpSection() {
       <div className="container">
         <div className="section-intro">
           <p className="eyebrow">Where we help</p>
-          <h2>Examples, not a service menu.</h2>
+          <h2>Start with the problem, not a spec.</h2>
           <p>
-            Every engagement starts with a problem, not a technology. These are examples of the
-            kinds of problems we help organizations work through:
+            Every engagement starts with a problem, not a technology. You don&rsquo;t need a
+            software specification, a multi-month commitment, or even a clear idea of what should be
+            built &mdash; start with a few hours and we&rsquo;ll explore the problem together.
+            Sometimes the right answer is not to build anything, and that is a successful outcome.
           </p>
+          <p>Some examples of the kinds of problems we help organizations work through:</p>
         </div>
 
         <div className="help-category-grid">

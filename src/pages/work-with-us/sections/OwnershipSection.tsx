@@ -122,6 +122,10 @@ function OwnershipSection() {
             </tbody>
           </table>
         </div>
+        <p className="ownership-note">
+          Regardless of the model, Exalynt may own the software, but you always retain ownership of
+          your business and customer data, subject to the applicable service agreement.
+        </p>
         <p className="contact-note">
           Contractual terms ultimately govern ownership. Actual agreements will define the specifics
           of any engagement.

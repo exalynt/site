@@ -24,21 +24,22 @@ const PROCESS = [
   {
     num: "05",
     title: "Decide",
-    body: "Use what we've learned to determine what deserves investment next.",
+    body: "Review what we accomplished and learned, then decide together whether to continue, reprioritize, pivot, adjust capacity, pause, or stop.",
   },
 ];
 
 function HowWeBuildSection() {
   return (
-    <section id="how-we-build" className="section">
+    <section id="how-we-build" className="section section-alt">
       <div className="container">
         <div className="section-intro">
           <p className="eyebrow">How we build</p>
-          <h2>A short cycle, repeated.</h2>
+          <h2>Short iterations. Frequent decisions.</h2>
           <p>
-            Rather than committing to a fixed plan up front, we work in short, honest cycles. Short
-            cycles mean fast feedback &mdash; so when something&rsquo;s off, we find out in days,
-            not months, and course-correct before much time or money is spent.
+            Exalynt works in iterations &mdash; usually one week, occasionally two. Each one ends at
+            a deliberate checkpoint: we stop, review what happened, and decide what&rsquo;s next
+            before continuing. That keeps feedback fast, so when something&rsquo;s off, we find out
+            in days, not months.
           </p>
         </div>
 
