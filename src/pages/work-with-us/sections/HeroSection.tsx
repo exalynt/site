@@ -14,13 +14,17 @@ function HeroSection() {
           </p>
           <p>
             We don&rsquo;t begin with a predetermined solution or a giant project plan. We begin
-            with the problem.
+            with the problem &mdash; and you decide, a block of engineering capacity at a time, how
+            far to take it.
           </p>
         </div>
         <div className="hero-actions">
           <button type="button" className="btn btn-primary" onClick={openContactModal}>
             Start a Conversation →
           </button>
+          <a className="btn btn-secondary" href="#pricing">
+            See Pricing →
+          </a>
         </div>
       </div>
     </section>

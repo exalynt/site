@@ -18,7 +18,7 @@ const DECISIONS = [
 
 function ControlSection() {
   return (
-    <section id="control" className="section">
+    <section id="control" className="section section-alt">
       <div className="container">
         <div className="section-intro">
           <p className="eyebrow">Your control</p>

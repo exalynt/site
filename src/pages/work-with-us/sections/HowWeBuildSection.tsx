@@ -30,7 +30,7 @@ const PROCESS = [
 
 function HowWeBuildSection() {
   return (
-    <section id="how-we-build" className="section section-alt">
+    <section id="how-we-build" className="section">
       <div className="container">
         <div className="section-intro">
           <p className="eyebrow">How we build</p>
