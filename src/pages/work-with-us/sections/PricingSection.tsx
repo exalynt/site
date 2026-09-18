@@ -5,18 +5,6 @@ import { PackageCards } from "../components/PackageCards";
 import { ComparisonTable } from "../components/ComparisonTable";
 import { CapacityCalculator } from "../components/CapacityCalculator";
 
-const PRICING_INCLUDES = [
-  "Discovery",
-  "Software architecture",
-  "Technical strategy",
-  "Software development",
-  "APIs and integrations",
-  "Infrastructure",
-  "Production engineering",
-  "Technical leadership",
-  "Existing system improvements",
-];
-
 function PricingSection() {
   const [estimatesModalOpen, setEstimatesModalOpen] = useState(false);
 
@@ -27,15 +15,9 @@ function PricingSection() {
           <p className="eyebrow">Pricing</p>
           <h2>Choose how much to invest.</h2>
           <p>
-            Exalynt sells engineering capacity, purchased in blocks. One Engineering Capacity Block
-            is a bounded amount of our attention and expertise &mdash; roughly ten hours&rsquo;
-            worth, as a familiar way to picture its size.
-          </p>
-          <p>
-            You decide how much capacity to authorize. We decide how to spend it on the most
-            valuable work. At the end of each iteration &mdash; usually one week, occasionally two
-            &mdash; we show you what we did and what we learned, and decide together what&rsquo;s
-            next.
+            Exalynt sells engineering capacity, bought in blocks. You buy a block, we spend it on
+            the most valuable work we can do for you, and you decide after each iteration whether to
+            buy another.
           </p>
           <p>
             No giant upfront project quote. No timesheets to reconcile. No long-term commitment. You
@@ -68,16 +50,14 @@ function PricingSection() {
           <div className="pricing-tools-copy">
             <h3>What would it cost to start?</h3>
             <p>
-              Pick a model and the amount of capacity you&rsquo;re comfortable authorizing. A single
+              Pick a model and the amount of capacity you&rsquo;re comfortable buying. A single
               block is a reasonable place to begin &mdash; enough to investigate a problem, build
               something small, or find out whether building anything is the right answer.
             </p>
-            <h3 className="pricing-tools-subhead">Capacity can be spent on</h3>
-            <ul className="check-list check-list-2col">
-              {PRICING_INCLUDES.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <p>
+              There&rsquo;s no minimum and no maximum. If you need more capacity than the calculator
+              shows, tell us what you&rsquo;re working on and we&rsquo;ll size it together.
+            </p>
           </div>
           <CapacityCalculator />
         </div>

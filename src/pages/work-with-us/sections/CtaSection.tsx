@@ -8,9 +8,9 @@ function CtaSection() {
         <p className="eyebrow">Ready when you are</p>
         <h2>Tell us about the problem.</h2>
         <p>
-          No specification required, and no obligation to a giant project. Start with a
-          conversation, authorize a block of engineering capacity when it makes sense, and see where
-          it leads.
+          The first conversation is free, no specification required, and there&rsquo;s no obligation
+          to a giant project. Start by talking it through, buy a block of engineering capacity when
+          it makes sense, and see where it leads.
         </p>
         <div className="cta-actions">
           <button type="button" className="btn btn-primary" onClick={openContactModal}>

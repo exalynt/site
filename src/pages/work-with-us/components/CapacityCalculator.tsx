@@ -15,7 +15,7 @@ export function CapacityCalculator() {
   const [blocks, setBlocks] = useState(DEFAULT_BLOCKS);
 
   const selected = getPackage(packageId);
-  const authorizedInvestment = blocks * selected.blockPrice;
+  const totalInvestment = blocks * selected.blockPrice;
   const approximateHours = blocks * BLOCK_HOURS;
 
   return (
@@ -77,8 +77,8 @@ export function CapacityCalculator() {
       <div className="calc-result-row">
         <p className="calc-line">&asymp; {approximateHours} hours of engineering capacity</p>
         <p className="calc-result">
-          <span className="calc-result-amount">${authorizedInvestment.toLocaleString()}</span>
-          <span className="calc-result-unit">authorized investment</span>
+          <span className="calc-result-amount">${totalInvestment.toLocaleString()}</span>
+          <span className="calc-result-unit">total investment</span>
         </p>
       </div>
 
@@ -97,9 +97,9 @@ export function CapacityCalculator() {
       </p>
 
       <p className="calc-note">
-        Authorize capacity as you need it, or prepay blocks in advance. Authorizing more than one
-        block doesn&rsquo;t fix a scope, a delivery date, or a long-term commitment &mdash; the
-        iteration review is still where we decide what happens next.
+        Buy capacity as you need it, or prepay blocks in advance. Buying more than one block
+        doesn&rsquo;t fix a scope, a delivery date, or a long-term commitment &mdash; the iteration
+        review is still where we decide what happens next.
       </p>
     </div>
   );

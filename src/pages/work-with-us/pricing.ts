@@ -7,7 +7,7 @@ export const BLOCK_HOURS = 10;
 export const HOSTING_MONTHLY = 299;
 export const BLOCK_OPTIONS = [1, 2, 3, 4];
 
-export type PackageId = "managed" | "client";
+export type PackageId = "managed" | "self";
 
 export type Package = {
   id: PackageId;
@@ -44,8 +44,8 @@ export const PACKAGES: Package[] = [
     cta: "Build with Exalynt Managed",
   },
   {
-    id: "client",
-    name: "Client Managed",
+    id: "self",
+    name: "Self Managed",
     subline: "You own the software and operate it wherever you choose.",
     blockPrice: 2250,
     monthly: "No monthly fee",
@@ -59,7 +59,7 @@ export const PACKAGES: Package[] = [
       "No recurring Exalynt hosting fee",
       "Exalynt stays available for future Engineering Capacity",
     ],
-    cta: "Talk about Client Managed",
+    cta: "Talk about Self Managed",
   },
 ];
 
@@ -68,4 +68,4 @@ export function getPackage(id: PackageId): Package {
 }
 
 export const MANAGED_BLOCK_PRICE = getPackage("managed").blockPrice;
-export const CLIENT_BLOCK_PRICE = getPackage("client").blockPrice;
+export const SELF_BLOCK_PRICE = getPackage("self").blockPrice;

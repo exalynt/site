@@ -1,4 +1,4 @@
-import { CLIENT_BLOCK_PRICE, HOSTING_MONTHLY, MANAGED_BLOCK_PRICE } from "../pricing";
+import { HOSTING_MONTHLY, MANAGED_BLOCK_PRICE, SELF_BLOCK_PRICE } from "../pricing";
 
 const FAQS = [
   {
@@ -7,7 +7,7 @@ const FAQS = [
   },
   {
     q: "What is an Engineering Capacity Block?",
-    a: `A block is a bounded amount of Exalynt’s attention and expertise, priced at $${MANAGED_BLOCK_PRICE.toLocaleString()} on Exalynt Managed and $${CLIENT_BLOCK_PRICE.toLocaleString()} on Client Managed. Roughly ten hours is a familiar way to picture its size — it isn’t a timesheet, and it isn’t a fixed scope of work. We may spend more or less time than that to reach a sensible stopping point; either way, your investment is what you authorized.`,
+    a: `A block is a bounded amount of Exalynt’s attention and expertise, priced at $${MANAGED_BLOCK_PRICE.toLocaleString()} on Exalynt Managed and $${SELF_BLOCK_PRICE.toLocaleString()} on Self Managed. Roughly ten hours is a familiar way to picture its size — it isn’t a timesheet, and it isn’t a fixed scope of work. We may spend more or less time than that to reach a sensible stopping point; either way, your investment is the block you bought.`,
   },
   {
     q: `When does the $${HOSTING_MONTHLY}/month hosting charge begin?`,
@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "What happens if I leave Exalynt hosting?",
-    a: `You keep your software. A standard handoff — source code, your data, and the normal deployment and configuration artifacts — is included. Substantial migration work or engineering specific to the destination environment uses Engineering Capacity. While Exalynt is no longer operating the software, future capacity is priced at the Client Managed rate of $${CLIENT_BLOCK_PRICE.toLocaleString()} per block. Nothing already completed is repriced.`,
+    a: `You keep your software. A standard handoff — source code, your data, and the normal deployment and configuration artifacts — is included. Substantial migration work or engineering specific to the destination environment uses Engineering Capacity. While Exalynt is no longer operating the software, future capacity is priced at the Self Managed rate of $${SELF_BLOCK_PRICE.toLocaleString()} per block. Nothing already completed is repriced.`,
   },
   {
     q: "What happens if infrastructure costs increase?",
@@ -35,11 +35,11 @@ const FAQS = [
   },
   {
     q: "Why is Engineering Capacity cheaper with Exalynt Managed?",
-    a: "Because we can build and operate inside a standardized production environment instead of designing around, documenting, and handing off to a hosting stack we don’t run. Less friction around deployment, infrastructure setup, and troubleshooting means more of each block goes into your software.",
+    a: "Less friction. When we operate the production environment ourselves, we aren’t designing around, documenting, and handing off to a hosting stack we don’t run — so more of each block goes into your software instead of into the seams between us and someone else.",
   },
   {
     q: "What if I plan to self-host?",
-    a: `That’s the Client Managed model, at $${CLIENT_BLOCK_PRICE.toLocaleString()} per block. If you start out heading toward Exalynt Managed and change your mind before launch, future capacity simply moves to the Client Managed rate — there’s no penalty and no retroactive adjustment.`,
+    a: `That’s the Self Managed model, at $${SELF_BLOCK_PRICE.toLocaleString()} per block. If you start out heading toward Exalynt Managed and change your mind before launch, future capacity simply moves to the Self Managed rate — there’s no penalty and no retroactive adjustment.`,
   },
 ];
 

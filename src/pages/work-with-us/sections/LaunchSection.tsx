@@ -1,10 +1,10 @@
-import { HOSTING_MONTHLY } from "../pricing";
+import { HOSTING_MONTHLY, SELF_BLOCK_PRICE } from "../pricing";
 
 const STAGES = [
   {
     num: "01",
     title: "Build",
-    body: "Authorize a block of Engineering Capacity and we go to work on the highest-value problem, reviewing progress with you every iteration.",
+    body: "Buy a block of Engineering Capacity and we go to work on the highest-value problem, reviewing progress with you every iteration.",
   },
   {
     num: "02",
@@ -19,12 +19,14 @@ const STAGES = [
 ];
 
 const HOSTING_COVERS = [
-  "Running the production environment",
+  "Production hosting",
   "Deployments and releases",
   "Monitoring and alerting",
   "Backups",
-  "Certificates and routine hosting configuration",
-  "Routine platform maintenance",
+  "TLS certificates and routine hosting configuration",
+  "Routine infrastructure operations and platform maintenance",
+  "Management of the production environment",
+  "No per-user fees",
 ];
 
 const CAPACITY_COVERS = [
@@ -36,16 +38,23 @@ const CAPACITY_COVERS = [
   "Any other engineering work",
 ];
 
-function LifecycleSection() {
+const YOU_OWN = [
+  "The custom software and deliverables defined by the agreement",
+  "The source code",
+  "Your business and customer data",
+  "The freedom to run it yourself, or have someone else run it",
+];
+
+function LaunchSection() {
   return (
-    <section id="lifecycle" className="section section-alt">
+    <section id="launch" className="section">
       <div className="container">
         <div className="section-intro">
-          <p className="eyebrow">Before and after launch</p>
+          <p className="eyebrow">Launch, hosting &amp; ownership</p>
           <h2>Launch when it&rsquo;s useful. Keep improving from there.</h2>
           <p>
             Software doesn&rsquo;t need to be finished to be valuable. We put working software into
-            production as soon as it can earn its keep, then keep improving it as long as
+            production as soon as it can earn its keep, then keep improving it for as long as
             there&rsquo;s worthwhile work to do.
           </p>
           <p>
@@ -87,20 +96,66 @@ function LifecycleSection() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <p className="fine-print">
+              Additional infrastructure costs resulting from higher usage or infrastructure
+              requirements may be passed through at cost.
+            </p>
           </div>
           <div className="info-card">
-            <p className="info-card-subtitle">Purchased in blocks, whenever you want it</p>
+            <p className="info-card-subtitle">Bought in blocks, whenever you want it</p>
             <h3>Engineering Capacity covers</h3>
             <ul className="check-list">
               {CAPACITY_COVERS.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <p className="fine-print">
+              Managed Hosting doesn&rsquo;t include new features. Changing what the software does is
+              always engineering work.
+            </p>
           </div>
         </div>
+
+        <div className="split-heading">
+          <h3>You own what we build.</h3>
+          <p>
+            Ownership isn&rsquo;t a package you choose &mdash; it&rsquo;s the same in both models.
+            The only question is who operates the software.
+          </p>
+        </div>
+
+        <ul className="check-list check-list-2col">
+          {YOU_OWN.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="fine-print">
+          Exalynt keeps its own pre-existing IP, reusable and general-purpose libraries, internal
+          tooling, and frameworks &mdash; the things we bring to every engagement rather than build
+          for yours. Third-party and open-source software stays subject to its own licenses.
+        </p>
+
+        <div className="commitment-box">
+          <p className="eyebrow">No lock-in</p>
+          <p className="commitment-lead">
+            You own the software and can move it elsewhere whenever you want.
+          </p>
+          <p>
+            There&rsquo;s no minimum hosting term, no annual contract, no termination fee, and no
+            software buyout. We hand over your source code, your data, and the normal deployment and
+            configuration artifacts a standard handoff requires. Migration work beyond that handoff
+            uses Engineering Capacity, priced from then on at the Self Managed rate of $
+            {SELF_BLOCK_PRICE.toLocaleString()} per block.
+          </p>
+        </div>
+
+        <p className="contact-note">
+          Contractual terms ultimately govern ownership. Actual agreements define the specifics of
+          any engagement.
+        </p>
       </div>
     </section>
   );
 }
 
-export default LifecycleSection;
+export default LaunchSection;

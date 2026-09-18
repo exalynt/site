@@ -1585,18 +1585,29 @@
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
-
-  @media (max-width: 900px) {
-    display: none;
-  }
 }
 
+/* On phones the links become one horizontally scrollable strip rather than
+   disappearing — this page is long enough that mobile needs the shortcut too. */
 .section-jump-nav-inner {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 20px;
   padding-top: 14px;
   padding-bottom: 14px;
+
+  @media (max-width: 900px) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 18px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 
   a {
     font-size: 14px;
@@ -1914,7 +1925,7 @@
   flex-shrink: 0;
 }
 
-/* Two engagement models: Exalynt Managed (recommended) and Client Managed.
+/* Two engagement models: Exalynt Managed (recommended) and Self Managed.
    Managed is first in the DOM so it stays on top when the grid stacks. */
 .package-grid {
   display: grid;
@@ -2073,17 +2084,6 @@
   }
 }
 
-.compare-hint {
-  display: none;
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--text);
-
-  @media (max-width: 760px) {
-    display: block;
-  }
-}
-
 .compare-table-wrap {
   overflow-x: auto;
   margin-top: 56px;
@@ -2122,9 +2122,8 @@
   color: var(--text);
 }
 
-/* Row labels stay put while the value columns scroll on narrow screens. */
+/* Row labels stay put while the value columns scroll on mid-size screens. */
 .compare-table th[scope="row"],
-.compare-table td:first-child,
 .compare-table thead th:first-child {
   position: sticky;
   left: 0;
@@ -2134,7 +2133,6 @@
 }
 
 .section-alt .compare-table th[scope="row"],
-.section-alt .compare-table td:first-child,
 .section-alt .compare-table thead th:first-child {
   background: var(--bg-alt);
 }
@@ -2160,6 +2158,76 @@
   color: var(--accent);
 }
 
+/* On phones the table stops being a table: each row becomes a small card with
+   the two models stacked underneath its label, so nothing scrolls sideways. */
+@media (max-width: 680px) {
+  .compare-table {
+    min-width: 0;
+    display: block;
+  }
+
+  .compare-table thead {
+    display: none;
+  }
+
+  .compare-table tbody {
+    display: block;
+  }
+
+  .compare-table tr {
+    display: block;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    display: block;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .compare-table tbody tr:not(.compare-group-row) {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .compare-table th[scope="row"] {
+    position: static;
+    margin-bottom: 8px;
+    /* matches the horizontal padding on the value cells below it */
+    padding: 0 10px;
+    font-family: var(--heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .compare-table td {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: right;
+  }
+
+  .compare-table td::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-align: left;
+  }
+
+  .compare-group-row th {
+    padding: 28px 0 6px;
+  }
+}
+
 /* Calculator + "what capacity buys" pairing */
 .pricing-tools {
   display: grid;
@@ -2182,14 +2250,6 @@
     font-size: 15px;
     line-height: 1.6;
   }
-}
-
-.pricing-tools-subhead {
-  margin-top: 28px;
-}
-
-.pricing-tools-subhead + .check-list {
-  margin-top: 14px;
 }
 
 .calc-hosting {
@@ -2234,6 +2294,25 @@
     font-size: 22px;
     line-height: 1.35;
   }
+
+  p {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 700px) {
+    margin-top: 44px;
+  }
+}
+
+.split-heading + .check-list,
+.split-heading + .capacity-uses {
+  margin-top: 20px;
+}
+
+.capacity-uses {
+  max-width: 720px;
 }
 
 .split-heading + .two-col-grid {
@@ -2380,4 +2459,70 @@
 
 .faq-item[open] .faq-marker {
   transform: translateY(2px) rotate(-135deg);
+}
+
+/* Cards that default to the elevated surface need to flip when the section
+   itself is already elevated, so they never disappear into their background. */
+.section-alt .build-cycle-detail,
+.section-alt .commitment-box,
+.section-alt .calc-box {
+  background: var(--bg);
+}
+
+/* Phone-size spacing pass for the Work With Exalynt page. Desktop padding
+   inside cards eats too much of a 375px viewport. */
+@media (max-width: 600px) {
+  .approach-list li {
+    grid-template-columns: 38px 1fr;
+    gap: 16px;
+    padding-bottom: 28px;
+  }
+
+  .approach-num {
+    width: 38px;
+    height: 38px;
+    font-size: 12px;
+  }
+
+  .approach-list::before {
+    left: 18px;
+  }
+
+  .calc-box {
+    padding: 24px 20px;
+  }
+
+  .commitment-box {
+    padding: 24px 22px;
+  }
+
+  .build-cycle-detail {
+    padding: 24px 22px;
+  }
+
+  .pull-quote {
+    margin-top: 40px;
+    padding-top: 24px;
+    font-size: 19px;
+  }
+
+  .compare-block {
+    margin-top: 44px;
+  }
+
+  .pricing-tools {
+    margin-top: 44px;
+  }
+
+  .capacity-option {
+    padding: 10px 2px;
+  }
+
+  .capacity-option-count {
+    font-size: 19px;
+  }
+
+  .capacity-option-wide .capacity-option-count {
+    font-size: 13px;
+  }
 }
