@@ -11,7 +11,7 @@ const JUMP_LINKS = [
   { to: "#how-we-help", label: "What we build" },
   { to: "#pricing", label: "Pricing" },
   { to: "#how-we-work", label: "How we work" },
-  { to: "#launch", label: "Launch & hosting" },
+  { to: "#launch", label: "Launch & operations" },
   { to: "#faq", label: "FAQ" },
 ];
 

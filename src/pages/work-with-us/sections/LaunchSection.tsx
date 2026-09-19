@@ -1,4 +1,9 @@
-import { HOSTING_MONTHLY, SELF_BLOCK_PRICE } from "../pricing";
+import {
+  INFRASTRUCTURE_ITEMS,
+  MANAGEMENT_COVERS,
+  MANAGEMENT_MONTHLY,
+  SELF_BLOCK_PRICE,
+} from "../pricing";
 
 const STAGES = [
   {
@@ -9,24 +14,13 @@ const STAGES = [
   {
     num: "02",
     title: "Launch",
-    body: `When the software is ready to do real work for your business, it goes into production. On Exalynt Managed, that’s when the $${HOSTING_MONTHLY}/month Managed Hosting fee begins.`,
+    body: `When the software is ready to do real work for your business, it goes into production. On Exalynt Managed, that’s when the $${MANAGEMENT_MONTHLY}/month management fee begins, alongside the infrastructure it runs on, billed at cost.`,
   },
   {
     num: "03",
     title: "Keep improving",
     body: "Launch isn’t the finish line. Buy more capacity whenever there’s a feature, integration, or improvement worth pursuing — and stop whenever there isn’t.",
   },
-];
-
-const HOSTING_COVERS = [
-  "Production hosting",
-  "Deployments and releases",
-  "Monitoring and alerting",
-  "Backups",
-  "TLS certificates and routine hosting configuration",
-  "Routine infrastructure operations and platform maintenance",
-  "Management of the production environment",
-  "No per-user fees",
 ];
 
 const CAPACITY_COVERS = [
@@ -50,7 +44,7 @@ function LaunchSection() {
     <section id="launch" className="section">
       <div className="container">
         <div className="section-intro">
-          <p className="eyebrow">Launch, hosting &amp; ownership</p>
+          <p className="eyebrow">Launch, operations &amp; ownership</p>
           <h2>Launch when it&rsquo;s useful. Keep improving from there.</h2>
           <p>
             Software doesn&rsquo;t need to be finished to be valuable. We put working software into
@@ -58,7 +52,7 @@ function LaunchSection() {
             there&rsquo;s worthwhile work to do.
           </p>
           <p>
-            Building doesn&rsquo;t trigger a hosting fee. Development environments, previews,
+            Building doesn&rsquo;t trigger a monthly fee. Development environments, previews,
             staging, demos, and prototypes are all just part of the work.
           </p>
         </div>
@@ -74,47 +68,95 @@ function LaunchSection() {
         </div>
 
         <blockquote className="pull-quote">
-          Hosting starts when your software starts working for your business &mdash; not when
-          development ends.
+          The monthly fee starts when your software starts working for your business &mdash; not
+          when development ends.
         </blockquote>
         <p className="fine-print">
-          More precisely: Managed Hosting begins when, at your direction, Exalynt makes the software
-          available in a production environment for actual business use &mdash; or when you ask
-          Exalynt to maintain an ongoing production environment that&rsquo;s ready for it.
+          More precisely: the management fee begins when, at your direction, Exalynt makes the
+          software available in a production environment for actual business use &mdash; or when you
+          ask Exalynt to maintain an ongoing production environment that&rsquo;s ready for it.
         </p>
 
         <div className="split-heading">
-          <h3>Hosting keeps the software running. Engineering Capacity changes what it does.</h3>
+          <h3>Two lines on the bill, and only one of them is ours.</h3>
+          <p>
+            Exalynt Managed is a flat ${MANAGEMENT_MONTHLY} a month to run your software, plus
+            whatever the infrastructure actually costs. We don&rsquo;t mark infrastructure up,
+            resell it, or take a percentage of it &mdash; it&rsquo;s the same bill you&rsquo;d be
+            paying if you ran the software yourself.
+          </p>
         </div>
 
         <div className="two-col-grid">
           <div className="info-card">
-            <p className="info-card-subtitle">${HOSTING_MONTHLY}/month once in production</p>
-            <h3>Managed Hosting covers</h3>
+            <p className="info-card-subtitle">${MANAGEMENT_MONTHLY}/month, flat</p>
+            <h3>Exalynt runs it</h3>
+            <p>
+              This is the part you&rsquo;re buying: a production environment that somebody competent
+              is actually responsible for.
+            </p>
             <ul className="check-list">
-              {HOSTING_COVERS.map((item) => (
+              {MANAGEMENT_COVERS.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
             <p className="fine-print">
-              Additional infrastructure costs resulting from higher usage or infrastructure
-              requirements may be passed through at cost.
+              No per-user fees. The fee doesn&rsquo;t change because you added people, and it
+              doesn&rsquo;t change because we had a busy month.
             </p>
           </div>
           <div className="info-card">
-            <p className="info-card-subtitle">Bought in blocks, whenever you want it</p>
-            <h3>Engineering Capacity covers</h3>
+            <p className="info-card-subtitle">At cost &mdash; no markup</p>
+            <h3>Infrastructure is what the software runs on</h3>
+            <p>
+              Your software rents things from other companies to do its job. Those charges are
+              passed straight through to you at exactly what they cost:
+            </p>
             <ul className="check-list">
-              {CAPACITY_COVERS.map((item) => (
-                <li key={item}>{item}</li>
+              {INFRASTRUCTURE_ITEMS.map(({ label, detail }) => (
+                <li key={label}>
+                  <strong>{label}</strong> &mdash; {detail}
+                </li>
               ))}
             </ul>
             <p className="fine-print">
-              Managed Hosting doesn&rsquo;t include new features. Changing what the software does is
-              always engineering work.
+              Infrastructure costs scale with real usage, so they grow as your business uses the
+              software more. We size things to keep them sensible and tell you before anything
+              meaningful changes.
             </p>
           </div>
         </div>
+
+        <blockquote className="pull-quote">
+          You&rsquo;d pay for the servers either way. The ${MANAGEMENT_MONTHLY} is for never having
+          to think about them.
+        </blockquote>
+
+        <div className="split-heading">
+          <h3>What Self Managed actually means.</h3>
+          <p>
+            Self Managed isn&rsquo;t cheaper infrastructure &mdash; it&rsquo;s the same
+            infrastructure, plus the job of running it. That job lands on someone in your
+            organization: choosing and sizing the servers, opening accounts with each provider,
+            wiring up deployments, noticing the outage at 11pm, applying security updates, checking
+            that the backups restore, and deciding what to do when usage spikes. Some teams already
+            have the people for that and would rather keep control. Most would rather not find out.
+          </p>
+        </div>
+
+        <div className="split-heading">
+          <h3>Management keeps the software running. Engineering Capacity changes what it does.</h3>
+          <p>
+            The monthly fee doesn&rsquo;t include new features. Changing what the software does is
+            always engineering work, bought in blocks whenever you want it:
+          </p>
+        </div>
+
+        <ul className="check-list check-list-2col">
+          {CAPACITY_COVERS.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
 
         <div className="split-heading">
           <h3>You own what we build.</h3>
@@ -141,8 +183,9 @@ function LaunchSection() {
             You own the software and can move it elsewhere whenever you want.
           </p>
           <p>
-            There&rsquo;s no minimum hosting term, no annual contract, no termination fee, and no
-            software buyout. We hand over your source code, your data, and the normal deployment and
+            There&rsquo;s no minimum term, no annual contract, no termination fee, and no software
+            buyout. The infrastructure accounts hold your software and your data, and they go with
+            you. We hand over your source code, your data, and the normal deployment and
             configuration artifacts a standard handoff requires. Migration work beyond that handoff
             uses Engineering Capacity, priced from then on at the Self Managed rate of $
             {SELF_BLOCK_PRICE.toLocaleString()} per block.

@@ -1,4 +1,4 @@
-import { HOSTING_MONTHLY, MANAGED_BLOCK_PRICE, SELF_BLOCK_PRICE } from "../pricing";
+import { MANAGED_BLOCK_PRICE, MANAGEMENT_MONTHLY, SELF_BLOCK_PRICE } from "../pricing";
 
 const MANAGED = "Exalynt Managed";
 const SELF = "Self Managed";
@@ -16,13 +16,13 @@ const GROUPS: Group[] = [
         self: `$${SELF_BLOCK_PRICE.toLocaleString()}`,
       },
       {
-        label: "Monthly Exalynt hosting",
-        managed: `$${HOSTING_MONTHLY}*`,
+        label: "Monthly management fee",
+        managed: `$${MANAGEMENT_MONTHLY}*`,
         self: "None",
       },
       {
-        label: "Additional infrastructure costs",
-        managed: "May be passed through at cost",
+        label: "Infrastructure (servers, databases, email, AI usage)",
+        managed: "At cost — no markup",
         self: "Paid directly by you",
       },
       { label: "Per-user fees", managed: "None", self: "None" },
@@ -36,18 +36,15 @@ const GROUPS: Group[] = [
     ],
   },
   {
-    group: "Who runs it",
+    group: "Who does the work",
     rows: [
-      {
-        label: "Hosting, deployments, monitoring, and backups",
-        managed: "Exalynt",
-        self: "You",
-      },
-      {
-        label: "Production environment and incidents",
-        managed: "Exalynt",
-        self: "You",
-      },
+      { label: "Sizing and scaling the infrastructure", managed: "Exalynt", self: "You" },
+      { label: "Deployments and releases", managed: "Exalynt", self: "You" },
+      { label: "Monitoring, alerting, and observability", managed: "Exalynt", self: "You" },
+      { label: "Backups and restore testing", managed: "Exalynt", self: "You" },
+      { label: "Security patching and updates", managed: "Exalynt", self: "You" },
+      { label: "Production incidents, including at night", managed: "Exalynt", self: "You" },
+      { label: "Provider accounts and infrastructure billing", managed: "Exalynt", self: "You" },
     ],
   },
   {
@@ -59,7 +56,7 @@ const GROUPS: Group[] = [
         self: "Engineering Capacity",
       },
       {
-        label: "Leaving Exalynt hosting",
+        label: "Leaving Exalynt Managed",
         managed: "Anytime, no exit fee",
         self: "Not applicable",
       },
@@ -70,7 +67,11 @@ const GROUPS: Group[] = [
 export function ComparisonTable() {
   return (
     <div className="compare-block">
-      <h3>Ownership is the same. Operational responsibility is different.</h3>
+      <h3>Ownership is the same. The infrastructure bill is the same. The work is not.</h3>
+      <p className="fine-print">
+        Both models run on the same kind of infrastructure, and in both models you pay what it
+        costs. The difference is who spends their evenings keeping it healthy.
+      </p>
       <div className="compare-table-wrap">
         <table className="compare-table">
           <thead>

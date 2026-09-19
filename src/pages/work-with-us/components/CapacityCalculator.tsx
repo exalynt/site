@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   BLOCK_HOURS,
   BLOCK_OPTIONS,
-  HOSTING_MONTHLY,
+  MANAGEMENT_MONTHLY,
   PACKAGES,
   getPackage,
   type PackageId,
@@ -85,13 +85,15 @@ export function CapacityCalculator() {
       <p className="calc-hosting">
         {packageId === "managed" ? (
           <>
-            <strong>Managed Hosting: ${HOSTING_MONTHLY}/month</strong>, starting when your software
-            goes into real business use. It isn&rsquo;t part of the amount above.
+            <strong>Once in production: ${MANAGEMENT_MONTHLY}/month</strong> for Exalynt to run it,
+            plus infrastructure at cost &mdash; servers, databases, email, and the like, billed with
+            no markup. Neither is part of the amount above, and neither starts until your software
+            is in real business use.
           </>
         ) : (
           <>
-            <strong>No recurring Exalynt hosting fee.</strong> You host and operate the software
-            yourself.
+            <strong>No recurring Exalynt fee.</strong> You arrange, pay for, and operate the
+            infrastructure yourself.
           </>
         )}
       </p>

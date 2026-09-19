@@ -4,6 +4,7 @@ import { EstimatesModal } from "../components/EstimatesModal";
 import { PackageCards } from "../components/PackageCards";
 import { ComparisonTable } from "../components/ComparisonTable";
 import { CapacityCalculator } from "../components/CapacityCalculator";
+import { MANAGEMENT_MONTHLY } from "../pricing";
 
 function PricingSection() {
   const [estimatesModalOpen, setEstimatesModalOpen] = useState(false);
@@ -41,6 +42,14 @@ function PricingSection() {
             operate inside a standardized production environment, instead of designing around
             &mdash; and handing off to &mdash; a separate hosting stack. The Managed rate applies
             while Exalynt is building toward and operating the production environment.
+          </p>
+          <p>
+            <strong>What does &ldquo;infrastructure at cost&rdquo; mean?</strong> Your software
+            rents things from other companies to do its job &mdash; servers, databases, file
+            storage, email, text messages, AI usage, your domain. On Exalynt Managed those charges
+            are passed through at exactly what they cost, with no markup and no percentage. It is
+            the same bill you would be paying if you ran the software yourself. The $
+            {MANAGEMENT_MONTHLY} a month is what Exalynt charges to run it for you.
           </p>
         </div>
 
